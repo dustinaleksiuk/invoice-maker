@@ -1,6 +1,10 @@
 {
-  "companyName": "Acme Manufacturing Inc.",
-  "addressOne": "10 River Road",
-  "addressTwo": "Beverly Hills, CA, 90210",
+  "outputFilenamePrefix": "acme",
+  "myCompanyName": "Acme Manufacturing Inc.",
+  "myAddressOne": "10 River Road",
+  "myAddressTwo": "Beverly Hills, CA, 90210",
+  "billToCompanyName": "Big Corp",
+  "billToAddressOne": "#52 1234 Centre St.",
+  "billToAddressTwo": "Calgary, AB, T2J 1X1",
   "hourlyRate": 50
 }

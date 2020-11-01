@@ -4,7 +4,6 @@ const dayjs = require('dayjs')
 const yargs = require('yargs/yargs');
 const currency = require('currency.js');
 
-
 const args = yargs(process.argv).argv;
 
 const configJson = fs.readFileSync(`${__dirname}/config.json`);
@@ -34,23 +33,30 @@ const data = {
   invoiceNumber: args.number,
   invoiceDate: formattedInvoiceDate,
   payPeriodEnding: formattedEndDate,
-  companyName: configData.companyName,
+  myCompanyName: configData.myCompanyName,
+  myAddressOne: configData.myAddressOne,
+  myAddressTwo: configData.myAddressTwo,
+  billToCompanyName: configData.billToCompanyName,
+  billToAddressOne: configData.billToAddressOne,
+  billToAddressTwo: configData.billToAddressTwo,
   rate: configData.hourlyRate,
   hoursWorkedDollarAmount,
   gstSubtotalDollarAmount,
   totalDollarAmount,
 };
 
-const options = {
+const outputFileName = configData.outputFilenamePrefix ? `${configData.outputFilenamePrefix}-invoice-${fileNameDate}.html` : `invoice-${fileNameDate}.html`;
 
-};
-
-ejs.renderFile(`${__dirname}/template/invoice.html`, data, options, function(err, str){
+ejs.renderFile(`${__dirname}/template/invoice.html`, data, function(err, str){
   if(err) {
     console.log(err);
   }
   
-  fs.writeFile(`${__dirname}/invoice-${fileNameDate}.html`, str, (err) => {
-    console.log(err);
+  fs.writeFile(`${__dirname}/${outputFileName}`, str, (err) => {
+    if(err) {
+      console.log(err);
+    }
+    
+    console.log(`Wrote file ${outputFileName}`);
   })
 });

@@ -36,7 +36,7 @@
         padding-bottom: 20px;
     }
     
-    .invoice-box table tr.top table td.title {
+    .invoice-box table tr.top table div.title {
         font-size: 25px;
         line-height: 45px;
         color: #333;
@@ -96,6 +96,10 @@
     .rtl table tr td:nth-child(2) {
         text-align: left;
     }
+
+    .bill-to-label {
+        font-weight: bold;
+    }
     </style>
 </head>
 
@@ -106,8 +110,12 @@
                 <td colspan="2">
                     <table>
                         <tr>
-                            <td class="title">
-                                <%= companyName %>
+                            <td>
+                                <div class="title">
+                                    <%= myCompanyName %><br>
+                                </div>
+                                <%= myAddressOne %><br>
+                                <%= myAddressTwo %>
                             </td>
                             
                             <td>
@@ -124,15 +132,14 @@
                     <table>
                         <tr>
                             <td>
-                                Sparksuite, Inc.<br>
-                                12345 Sunny Road<br>
-                                Sunnyville, CA 12345
+                                <div class="bill-to-label">Bill To:</div>
+                                <%= billToCompanyName %><br>
+                                <%= billToAddressOne %><br>
+                                <%= billToAddressTwo %>
                             </td>
                             
                             <td>
-                                Acme Corp.<br>
-                                John Doe<br>
-                                john@example.com
+                                &nbsp;
                             </td>
                         </tr>
                     </table>
@@ -161,7 +168,7 @@
             
             <tr class="heading">
                 <td>
-                    Item
+                    &nbsp;
                 </td>
                 
                 <td>
