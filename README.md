@@ -8,5 +8,4 @@ A basic invoice generator that creates an HTML invoice.
 1. Modify the config.json file
 1. Run using node: `node ./invoice-maker.js --hours=176 --year=2020 --month=10 --number=3 --date=2020-10-28`
 
-#### Invoice Template
 Thanks to the [simple-html-invoice-template](https://github.com/sparksuite/simple-html-invoice-template) for the HTML template.
